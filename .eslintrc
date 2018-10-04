@@ -1,3 +1,9 @@
 {
-  "extends": "kentcdodds"
+  "extends": ["kentcdodds", "eslint:recommended", "plugin:react/recommended"],
+  "rules": {
+    "semi": ["error", "never"]
+  },
+  "env": {
+    "jest": true
+  }
 }
