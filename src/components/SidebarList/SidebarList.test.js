@@ -1,21 +1,9 @@
 import React from 'react'
-import { render } from 'react-testing-library'
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
+import { render } from '../../utils/test-utils'
 import SidebarList from './SidebarList'
 
-const theme = createMuiTheme({
-  typography: {
-    useNextVariants: true
-  }
-})
-
 test('Sidebar list', () => {
-  const sidebar = render(
-    <MuiThemeProvider theme={theme}>
-      <SidebarList />
-    </MuiThemeProvider>
-  )
-  const { getByText } = sidebar
+  const { getByText } = render(<SidebarList />)
 
   expect(getByText('Search')).toHaveTextContent('Search')
   expect(getByText('Top 10')).toHaveTextContent('Top 10')
