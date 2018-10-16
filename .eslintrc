@@ -1,7 +1,8 @@
 {
   "extends": ["kentcdodds", "eslint:recommended", "plugin:react/recommended"],
   "rules": {
-    "semi": ["error", "never"]
+    "semi": ["error", "never"],
+    "import/no-extraneous-dependencies": 0
   },
   "env": {
     "jest": true
