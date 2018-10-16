@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
 import List from '@material-ui/core/List'
@@ -16,6 +17,9 @@ const styles = theme => ({
     width: '100%',
     maxWidth: 360,
     backgroundColor: theme.palette.background.paper
+  },
+  noDecoration: {
+    textDecoration: 'none'
   }
 })
 
@@ -25,33 +29,41 @@ function SidebarList(props) {
   return (
     <div id={'Testing'} className={classes.root}>
       <List component="nav">
-        <ListItem button>
-          <ListItemIcon>
-            <SearchIcon />
-          </ListItemIcon>
-          <ListItemText primary="Search" />
-        </ListItem>
-        <ListItem button>
-          <ListItemIcon>
-            <WhatshotIcon />
-          </ListItemIcon>
-          <ListItemText primary="Top 10" />
-        </ListItem>
-        <ListItem button>
-          <ListItemIcon>
-            <HighlightIcon />
-          </ListItemIcon>
-          <ListItemText primary="Insights" />
-        </ListItem>
+        <Link to="/" className={classes.noDecoration}>
+          <ListItem button>
+            <ListItemIcon>
+              <SearchIcon />
+            </ListItemIcon>
+            <ListItemText primary="Search" />
+          </ListItem>
+        </Link>
+        <Link to="/top10" className={classes.noDecoration}>
+          <ListItem button>
+            <ListItemIcon>
+              <WhatshotIcon />
+            </ListItemIcon>
+            <ListItemText primary="Top 10" />
+          </ListItem>
+        </Link>
+        <Link to="/insights" className={classes.noDecoration}>
+          <ListItem button>
+            <ListItemIcon>
+              <HighlightIcon />
+            </ListItemIcon>
+            <ListItemText primary="Insights" />
+          </ListItem>
+        </Link>
       </List>
       <Divider />
       <List component="nav">
-        <ListItem button>
-          <ListItemIcon>
-            <InfoIcon />
-          </ListItemIcon>
-          <ListItemText primary="About" />
-        </ListItem>
+        <Link to="/about" className={classes.noDecoration}>
+          <ListItem button>
+            <ListItemIcon>
+              <InfoIcon />
+            </ListItemIcon>
+            <ListItemText primary="About" />
+          </ListItem>
+        </Link>
       </List>
     </div>
   )
