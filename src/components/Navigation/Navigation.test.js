@@ -1,19 +1,13 @@
 import React from 'react'
-import { render } from 'react-testing-library'
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
+import { MemoryRouter } from 'react-router-dom'
+import { render } from '../../utils/test-utils'
 import Navigation from './Navigation'
-
-const theme = createMuiTheme({
-  typography: {
-    useNextVariants: true
-  }
-})
 
 test('Navigation bars', () => {
   const nav = render(
-    <MuiThemeProvider theme={theme}>
+    <MemoryRouter>
       <Navigation />
-    </MuiThemeProvider>
+    </MemoryRouter>
   )
   const { getByText } = nav
 
