@@ -38,7 +38,10 @@ function Navigation(props) {
             {'BigPy — Customer Data Analysis'}
           </Typography>
           <div className={classes.grow} />
-          <IconButton color="inherit">
+          <IconButton
+            color="inherit"
+            href="https://github.com/wederribas/bigpy-webapp"
+          >
             <GitHubIcon />
           </IconButton>
         </Toolbar>
