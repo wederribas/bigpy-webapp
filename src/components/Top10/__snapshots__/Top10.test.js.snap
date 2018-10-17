@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Top10 page testing 1`] = `
+<div>
+  Top 10
+</div>
+`;

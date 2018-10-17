@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders the animated loading dots and check if there are 3 dots 1`] = `
+<div
+  class="bouncing-loader"
+>
+  <div />
+  <div />
+  <div />
+</div>
+`;
