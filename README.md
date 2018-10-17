@@ -1,6 +1,7 @@
 # BigPy Web App
 
 [![Build Status](https://travis-ci.org/wederribas/bigpy-webapp.svg?branch=master)](https://travis-ci.org/wederribas/bigpy-webapp)
+[![Code Coverage](https://img.shields.io/codecov/c/github/wederribas/bigpy-webapp.svg?style=flat-square)](https://codecov.io/github/wederribas/bigpy-webapp)
 [![GitHub issues](https://img.shields.io/github/issues/wederribas/bigpy-webapp.svg)](https://github.com/wederribas/bigpy-webapp/issues)
 ![Contributions welcome](https://img.shields.io/badge/contributions-welcome-orange.svg)
 [![GitHub stars](https://img.shields.io/github/stars/wederribas/bigpy-webapp.svg)](https://github.com/wederribas/bigpy-webapp/stargazers)
