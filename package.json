@@ -6,6 +6,7 @@
     "@material-ui/core": "^3.2.0",
     "@material-ui/icons": "^3.0.1",
     "apollo-boost": "^0.1.16",
+    "downshift": "^3.1.1",
     "flow-bin": "^0.82.0",
     "graphql": "^14.0.2",
     "prop-types": "^15.6.2",
@@ -20,6 +21,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom --updateSnapshot",
     "test:coverage": "react-scripts test --coverage --env=jsdom",
+    "test:flow": "flow",
     "report-coverage": "codecov",
     "eject": "react-scripts eject",
     "flow": "flow"
