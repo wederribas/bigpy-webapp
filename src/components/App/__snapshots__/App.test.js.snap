@@ -255,11 +255,15 @@ exports[`renders without crashing 1`] = `
         class="MainComponent-toolbar-3"
       />
       <div
-        class="bouncing-loader"
+        class="Apollo-Search--root-148"
       >
-        <div />
-        <div />
-        <div />
+        <div
+          class="bouncing-loader"
+        >
+          <div />
+          <div />
+          <div />
+        </div>
       </div>
     </main>
   </div>
