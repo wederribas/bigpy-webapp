@@ -7,6 +7,9 @@ import { withStyles } from '@material-ui/core/styles'
 import InputBase from '@material-ui/core/InputBase'
 import Paper from '@material-ui/core/Paper'
 import MenuItem from '@material-ui/core/MenuItem'
+import MoodBad from '@material-ui/icons/MoodBad'
+import Grid from '@material-ui/core/Grid'
+import Typography from '@material-ui/core/Typography'
 import BouncingLoader from '../BouncingLoader/BouncingLoader'
 import { deburr } from '../../utils/utils'
 
@@ -42,6 +45,10 @@ const styles = theme => ({
       borderColor: '#80bdff',
       boxShadow: '0 0 0 0.2rem rgba(0,123,255,.25)'
     }
+  },
+  icon: {
+    margin: theme.spacing.unit,
+    fontSize: 250
   }
 })
 
@@ -100,7 +107,19 @@ renderSuggestion.propTypes = {
 class Search extends Component {
   render() {
     const { classes } = this.props
-    const { loading, allCompaniesNames } = this.props.data
+    const { loading, error, allCompaniesNames } = this.props.data
+
+    if (error) {
+      return (
+        <Grid container direction="column" justify="center" alignItems="center">
+          <MoodBad className={classes.icon} color="disabled" />
+          <Typography variant="h5" color="inherit">
+            Something went bad. Please, try again.
+          </Typography>
+        </Grid>
+      )
+    }
+
     return (
       <div className={classes.root}>
         {!loading ? (
