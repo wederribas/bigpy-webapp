@@ -19,31 +19,39 @@ exports[`Search bar filtering 2`] = `
   class="Apollo-Search--root-1"
 >
   <div
-    aria-expanded="false"
-    aria-haspopup="listbox"
-    aria-labelledby="downshift-0-label"
     class="Apollo-Search--container-2"
-    role="combobox"
   >
-    <div
-      class="MuiInputBase-root-6 Apollo-Search--searchRoot-4 MuiInputBase-fullWidth-15"
+    <h1
+      class="MuiTypography-root-8 Apollo-Search--title-7 MuiTypography-h1-20 MuiTypography-colorPrimary-38 MuiTypography-gutterBottom-35 MuiTypography-alignCenter-31"
     >
-      <input
-        aria-autocomplete="list"
+      BigPy
+    </h1>
+    <div
+      aria-expanded="false"
+      aria-haspopup="listbox"
+      aria-labelledby="downshift-0-label"
+      role="combobox"
+    >
+      <div
+        class="MuiInputBase-root-56 MuiInput-root-43 Apollo-Search--searchRoot-4 MuiInputBase-fullWidth-65 MuiInput-fullWidth-50"
+      >
+        <input
+          aria-autocomplete="list"
+          aria-labelledby="downshift-0-label"
+          autocomplete="off"
+          class="MuiInputBase-input-66 MuiInput-input-51 Apollo-Search--searchInput-5"
+          id="downshift-0-input"
+          placeholder="Search a company"
+          type="text"
+          value="Company 0"
+        />
+      </div>
+      <div
         aria-labelledby="downshift-0-label"
-        autocomplete="off"
-        class="MuiInputBase-input-16 Apollo-Search--searchInput-5"
-        id="downshift-0-input"
-        placeholder="Search a company"
-        type="text"
-        value="Company 0"
+        id="downshift-0-menu"
+        role="listbox"
       />
     </div>
-    <div
-      aria-labelledby="downshift-0-label"
-      id="downshift-0-menu"
-      role="listbox"
-    />
   </div>
 </div>
 `;

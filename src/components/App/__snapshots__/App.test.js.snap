@@ -7,7 +7,6 @@ exports[`renders without crashing 1`] = `
   >
     <div
       class="Navigation-root-4"
-      id="HelloThere"
     >
       <header
         class="MuiPaper-root-18 MuiPaper-elevation4-24 MuiAppBar-root-9 MuiAppBar-positionAbsolute-11 MuiAppBar-colorPrimary-16 Navigation-appBar-6"
@@ -61,7 +60,6 @@ exports[`renders without crashing 1`] = `
           />
           <div
             class="SidebarList-root-120"
-            id="Testing"
           >
             <nav
               class="MuiList-root-122 MuiList-padding-123"

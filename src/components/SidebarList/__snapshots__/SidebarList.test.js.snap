@@ -3,7 +3,6 @@
 exports[`Sidebar list 1`] = `
 <div
   class="SidebarList-root-1"
-  id="Testing"
 >
   <nav
     class="MuiList-root-3 MuiList-padding-4"
