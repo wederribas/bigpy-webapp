@@ -27,7 +27,7 @@ function SidebarList(props) {
   const { classes } = props
 
   return (
-    <div id={'Testing'} className={classes.root}>
+    <div className={classes.root}>
       <List component="nav">
         <Link to="/" className={classes.noDecoration}>
           <ListItem button>

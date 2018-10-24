@@ -9,8 +9,6 @@ import { IconButton } from '@material-ui/core'
 import SidebarList from '../SidebarList/SidebarList'
 import GitHubIcon from '../Icons/GitHubIcon'
 
-const drawerWidth = 200
-
 const styles = theme => ({
   root: {
     display: 'flex'
@@ -23,7 +21,7 @@ const styles = theme => ({
   },
   drawerPaper: {
     position: 'relative',
-    width: drawerWidth
+    width: 200
   },
   toolbar: theme.mixins.toolbar
 })
@@ -31,11 +29,11 @@ const styles = theme => ({
 function Navigation(props) {
   const { classes } = props
   return (
-    <div id={'HelloThere'} className={classes.root}>
+    <div className={classes.root}>
       <AppBar position="absolute" className={classes.appBar}>
         <Toolbar>
           <Typography variant="h6" color="inherit" noWrap>
-            {'BigPy — Customer Data Analysis'}
+            BigPy — Customer Data Analysis
           </Typography>
           <div className={classes.grow} />
           <IconButton
