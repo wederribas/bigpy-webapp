@@ -4,7 +4,7 @@ import Downshift from 'downshift'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 import { withStyles } from '@material-ui/core/styles'
-import InputBase from '@material-ui/core/InputBase'
+import Input from '@material-ui/core/Input'
 import Paper from '@material-ui/core/Paper'
 import MenuItem from '@material-ui/core/MenuItem'
 import MoodBad from '@material-ui/icons/MoodBad'
@@ -13,14 +13,19 @@ import Typography from '@material-ui/core/Typography'
 import BouncingLoader from '../BouncingLoader/BouncingLoader'
 import { deburr } from '../../utils/utils'
 
+const MAX_SUGGESTION_ITEMS = 8
+
 const styles = theme => ({
   root: {
+    display: 'flex',
+    justifyContent: 'center',
     flexGrow: 1,
-    height: 250
+    marginTop: theme.spacing.unit * 30
   },
   container: {
     flexGrow: 1,
-    position: 'relative'
+    position: 'relative',
+    maxWidth: theme.spacing.unit * 75
   },
   paper: {
     position: 'absolute',
@@ -49,6 +54,9 @@ const styles = theme => ({
   icon: {
     margin: theme.spacing.unit,
     fontSize: 250
+  },
+  title: {
+    fontWeight: 'initial'
   }
 })
 
@@ -56,7 +64,7 @@ function renderInput(inputProps) {
   const { InputProps, classes, ...other } = inputProps
 
   return (
-    <InputBase
+    <Input
       classes={{
         root: classes.searchRoot,
         input: classes.searchInput
@@ -123,57 +131,71 @@ class Search extends Component {
     return (
       <div className={classes.root}>
         {!loading ? (
-          <Downshift
-            onChange={selectedItem => {
-              console.log(`You have selected item ${selectedItem}`)
-            }}
-          >
-            {({
-              getInputProps,
-              getMenuProps,
-              getItemProps,
-              highlightedIndex,
-              isOpen,
-              inputValue,
-              selectedItem
-            }) => (
-              <div className={classes.container}>
-                {renderInput({
-                  fullWidth: true,
-                  classes,
-                  InputProps: getInputProps({
-                    placeholder: 'Search a company'
-                  })
-                })}
-                <div {...getMenuProps()}>
-                  {isOpen ? (
-                    <Paper className={classes.paper} square>
-                      {allCompaniesNames.edges
-                        .filter(({ node }) => {
-                          const companyName = deburr(node.Id.toLowerCase())
-                          const searchInput = deburr(inputValue.toLowerCase())
-                          return (
-                            companyName.includes(searchInput) &&
-                            searchInput.length > 1
-                          )
-                        })
-                        .map((suggestion, index) => {
-                          return renderSuggestion({
-                            suggestion,
-                            index,
-                            itemProps: getItemProps({
-                              item: suggestion.node.Id
-                            }),
-                            highlightedIndex,
-                            selectedItem
+          <div className={classes.container}>
+            <Typography
+              classes={{ root: classes.title }}
+              component="h1"
+              variant="h1"
+              color="primary"
+              align="center"
+              gutterBottom
+            >
+              BigPy
+            </Typography>
+            <Downshift
+              onChange={selectedItem => {
+                console.log(`You have selected item ${selectedItem}`)
+              }}
+            >
+              {({
+                getInputProps,
+                getMenuProps,
+                getItemProps,
+                highlightedIndex,
+                isOpen,
+                inputValue,
+                selectedItem
+              }) => (
+                <div>
+                  {renderInput({
+                    fullWidth: true,
+                    disableUnderline: true,
+                    classes,
+                    InputProps: getInputProps({
+                      placeholder: 'Search a company'
+                    })
+                  })}
+                  <div {...getMenuProps()}>
+                    {isOpen ? (
+                      <Paper className={classes.paper} square>
+                        {allCompaniesNames.edges
+                          .filter(({ node }) => {
+                            const companyName = deburr(node.Id.toLowerCase())
+                            const searchInput = deburr(inputValue.toLowerCase())
+                            return (
+                              companyName.includes(searchInput) &&
+                              searchInput.length > 1
+                            )
                           })
-                        })}
-                    </Paper>
-                  ) : null}
+                          .slice(0, MAX_SUGGESTION_ITEMS)
+                          .map((suggestion, index) => {
+                            return renderSuggestion({
+                              suggestion,
+                              index,
+                              itemProps: getItemProps({
+                                item: suggestion.node.Id
+                              }),
+                              highlightedIndex,
+                              selectedItem
+                            })
+                          })}
+                      </Paper>
+                    ) : null}
+                  </div>
                 </div>
-              </div>
-            )}
-          </Downshift>
+              )}
+            </Downshift>
+          </div>
         ) : (
           <BouncingLoader />
         )}

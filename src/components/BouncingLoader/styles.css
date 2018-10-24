@@ -12,6 +12,7 @@
 .bouncing-loader {
   display: flex;
   justify-content: center;
+  align-self: center;
 }
 
 .bouncing-loader > div {
