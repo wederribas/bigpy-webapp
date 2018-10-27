@@ -78,13 +78,12 @@ function renderInput(inputProps) {
 }
 
 function renderSuggestion({
-  suggestion,
+  companyName,
   index,
   itemProps,
   highlightedIndex,
   selectedItem
 }) {
-  const companyName = suggestion.node.Id
   const isHighlightedIndex = highlightedIndex === index
   const isSelected = (selectedItem || '').indexOf(companyName) > -1
 
@@ -115,7 +114,7 @@ renderSuggestion.propTypes = {
 class Search extends Component {
   render() {
     const { classes } = this.props
-    const { loading, error, allCompaniesNames } = this.props.data
+    const { loading, error, companiesNames } = this.props.data
 
     if (error) {
       return (
@@ -168,9 +167,9 @@ class Search extends Component {
                   <div {...getMenuProps()}>
                     {isOpen ? (
                       <Paper className={classes.paper} square>
-                        {allCompaniesNames.edges
-                          .filter(({ node }) => {
-                            const companyName = deburr(node.Id.toLowerCase())
+                        {companiesNames
+                          .filter(name => {
+                            const companyName = deburr(name.toLowerCase())
                             const searchInput = deburr(inputValue.toLowerCase())
                             return (
                               companyName.includes(searchInput) &&
@@ -178,12 +177,12 @@ class Search extends Component {
                             )
                           })
                           .slice(0, MAX_SUGGESTION_ITEMS)
-                          .map((suggestion, index) => {
+                          .map((companyName, index) => {
                             return renderSuggestion({
-                              suggestion,
+                              companyName,
                               index,
                               itemProps: getItemProps({
-                                item: suggestion.node.Id
+                                item: companyName
                               }),
                               highlightedIndex,
                               selectedItem
@@ -208,16 +207,10 @@ Search.propTypes = {
   classes: PropTypes.object.isRequired
 }
 
-export const getCompaniesQuery = gql`
+export const getCompaniesNamesQuery = gql`
   query {
-    allCompaniesNames {
-      edges {
-        node {
-          Id
-        }
-      }
-    }
+    companiesNames
   }
 `
 
-export default withStyles(styles)(graphql(getCompaniesQuery)(Search))
+export default withStyles(styles)(graphql(getCompaniesNamesQuery)(Search))
