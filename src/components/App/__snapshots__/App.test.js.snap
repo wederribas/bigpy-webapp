@@ -44,37 +44,37 @@ exports[`renders without crashing 1`] = `
               </svg>
             </span>
             <span
-              class="MuiTouchRipple-root-102"
+              class="MuiTouchRipple-root-148"
             />
           </a>
         </div>
       </header>
       <div
-        class="MuiDrawer-docked-109"
+        class="MuiDrawer-docked-102"
       >
         <div
-          class="MuiPaper-root-18 MuiPaper-elevation0-20 MuiDrawer-paper-110 Navigation-drawerPaper-7 MuiDrawer-paperAnchorLeft-111 MuiDrawer-paperAnchorDockedLeft-115"
+          class="MuiPaper-root-18 MuiPaper-elevation0-20 MuiDrawer-paper-103 Navigation-drawerPaper-7 MuiDrawer-paperAnchorLeft-104 MuiDrawer-paperAnchorDockedLeft-108"
         >
           <div
             class="Navigation-toolbar-8"
           />
           <div
-            class="SidebarList-root-120"
+            class="SidebarList-root-113"
           >
             <nav
-              class="MuiList-root-122 MuiList-padding-123"
+              class="MuiList-root-115 MuiList-padding-116"
             >
               <a
-                class="SidebarList-noDecoration-121"
+                class="SidebarList-noDecoration-114"
                 href="/"
               >
                 <div
-                  class="MuiButtonBase-root-90 MuiListItem-root-126 MuiListItem-default-129 MuiListItem-gutters-133 MuiListItem-button-134"
+                  class="MuiButtonBase-root-90 MuiListItem-root-119 MuiListItem-default-122 MuiListItem-gutters-126 MuiListItem-button-127"
                   role="button"
                   tabindex="0"
                 >
                   <div
-                    class="MuiListItemIcon-root-137"
+                    class="MuiListItemIcon-root-130"
                   >
                     <svg
                       aria-hidden="true"
@@ -93,30 +93,30 @@ exports[`renders without crashing 1`] = `
                     </svg>
                   </div>
                   <div
-                    class="MuiListItemText-root-138"
+                    class="MuiListItemText-root-131"
                   >
                     <span
-                      class="MuiTypography-root-49 MuiTypography-subtitle1-67 MuiListItemText-primary-141"
+                      class="MuiTypography-root-49 MuiTypography-subtitle1-67 MuiListItemText-primary-134"
                     >
                       Search
                     </span>
                   </div>
                   <span
-                    class="MuiTouchRipple-root-102"
+                    class="MuiTouchRipple-root-148"
                   />
                 </div>
               </a>
               <a
-                class="SidebarList-noDecoration-121"
+                class="SidebarList-noDecoration-114"
                 href="/top10"
               >
                 <div
-                  class="MuiButtonBase-root-90 MuiListItem-root-126 MuiListItem-default-129 MuiListItem-gutters-133 MuiListItem-button-134"
+                  class="MuiButtonBase-root-90 MuiListItem-root-119 MuiListItem-default-122 MuiListItem-gutters-126 MuiListItem-button-127"
                   role="button"
                   tabindex="0"
                 >
                   <div
-                    class="MuiListItemIcon-root-137"
+                    class="MuiListItemIcon-root-130"
                   >
                     <svg
                       aria-hidden="true"
@@ -135,30 +135,30 @@ exports[`renders without crashing 1`] = `
                     </svg>
                   </div>
                   <div
-                    class="MuiListItemText-root-138"
+                    class="MuiListItemText-root-131"
                   >
                     <span
-                      class="MuiTypography-root-49 MuiTypography-subtitle1-67 MuiListItemText-primary-141"
+                      class="MuiTypography-root-49 MuiTypography-subtitle1-67 MuiListItemText-primary-134"
                     >
                       Top 10
                     </span>
                   </div>
                   <span
-                    class="MuiTouchRipple-root-102"
+                    class="MuiTouchRipple-root-148"
                   />
                 </div>
               </a>
               <a
-                class="SidebarList-noDecoration-121"
+                class="SidebarList-noDecoration-114"
                 href="/insights"
               >
                 <div
-                  class="MuiButtonBase-root-90 MuiListItem-root-126 MuiListItem-default-129 MuiListItem-gutters-133 MuiListItem-button-134"
+                  class="MuiButtonBase-root-90 MuiListItem-root-119 MuiListItem-default-122 MuiListItem-gutters-126 MuiListItem-button-127"
                   role="button"
                   tabindex="0"
                 >
                   <div
-                    class="MuiListItemIcon-root-137"
+                    class="MuiListItemIcon-root-130"
                   >
                     <svg
                       aria-hidden="true"
@@ -179,37 +179,37 @@ exports[`renders without crashing 1`] = `
                     </svg>
                   </div>
                   <div
-                    class="MuiListItemText-root-138"
+                    class="MuiListItemText-root-131"
                   >
                     <span
-                      class="MuiTypography-root-49 MuiTypography-subtitle1-67 MuiListItemText-primary-141"
+                      class="MuiTypography-root-49 MuiTypography-subtitle1-67 MuiListItemText-primary-134"
                     >
                       Insights
                     </span>
                   </div>
                   <span
-                    class="MuiTouchRipple-root-102"
+                    class="MuiTouchRipple-root-148"
                   />
                 </div>
               </a>
             </nav>
             <hr
-              class="MuiDivider-root-144"
+              class="MuiDivider-root-137"
             />
             <nav
-              class="MuiList-root-122 MuiList-padding-123"
+              class="MuiList-root-115 MuiList-padding-116"
             >
               <a
-                class="SidebarList-noDecoration-121"
+                class="SidebarList-noDecoration-114"
                 href="/about"
               >
                 <div
-                  class="MuiButtonBase-root-90 MuiListItem-root-126 MuiListItem-default-129 MuiListItem-gutters-133 MuiListItem-button-134"
+                  class="MuiButtonBase-root-90 MuiListItem-root-119 MuiListItem-default-122 MuiListItem-gutters-126 MuiListItem-button-127"
                   role="button"
                   tabindex="0"
                 >
                   <div
-                    class="MuiListItemIcon-root-137"
+                    class="MuiListItemIcon-root-130"
                   >
                     <svg
                       aria-hidden="true"
@@ -228,16 +228,16 @@ exports[`renders without crashing 1`] = `
                     </svg>
                   </div>
                   <div
-                    class="MuiListItemText-root-138"
+                    class="MuiListItemText-root-131"
                   >
                     <span
-                      class="MuiTypography-root-49 MuiTypography-subtitle1-67 MuiListItemText-primary-141"
+                      class="MuiTypography-root-49 MuiTypography-subtitle1-67 MuiListItemText-primary-134"
                     >
                       About
                     </span>
                   </div>
                   <span
-                    class="MuiTouchRipple-root-102"
+                    class="MuiTouchRipple-root-148"
                   />
                 </div>
               </a>
@@ -253,7 +253,7 @@ exports[`renders without crashing 1`] = `
         class="MainComponent-toolbar-3"
       />
       <div
-        class="Apollo-Search--root-148"
+        class="Apollo-Search--root-141"
       >
         <div
           class="bouncing-loader"

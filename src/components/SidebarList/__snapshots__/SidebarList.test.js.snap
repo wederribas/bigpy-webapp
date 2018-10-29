@@ -45,7 +45,7 @@ exports[`Sidebar list 1`] = `
           </span>
         </div>
         <span
-          class="MuiTouchRipple-root-72"
+          class="MuiTouchRipple-root-76"
         />
       </div>
     </a>
@@ -87,7 +87,7 @@ exports[`Sidebar list 1`] = `
           </span>
         </div>
         <span
-          class="MuiTouchRipple-root-72"
+          class="MuiTouchRipple-root-76"
         />
       </div>
     </a>
@@ -131,13 +131,13 @@ exports[`Sidebar list 1`] = `
           </span>
         </div>
         <span
-          class="MuiTouchRipple-root-72"
+          class="MuiTouchRipple-root-76"
         />
       </div>
     </a>
   </nav>
   <hr
-    class="MuiDivider-root-79"
+    class="MuiDivider-root-72"
   />
   <nav
     class="MuiList-root-3 MuiList-padding-4"
@@ -180,7 +180,7 @@ exports[`Sidebar list 1`] = `
           </span>
         </div>
         <span
-          class="MuiTouchRipple-root-72"
+          class="MuiTouchRipple-root-76"
         />
       </div>
     </a>
