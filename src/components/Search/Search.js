@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { withRouter } from 'react-router'
 import PropTypes from 'prop-types'
 import Downshift from 'downshift'
 import { graphql } from 'react-apollo'
@@ -143,7 +144,7 @@ class Search extends Component {
             </Typography>
             <Downshift
               onChange={selectedItem => {
-                console.log(`You have selected item ${selectedItem}`)
+                this.props.history.push(`dashboard/${encodeURI(selectedItem)}`)
               }}
             >
               {({
@@ -213,4 +214,6 @@ export const getCompaniesNamesQuery = gql`
   }
 `
 
-export default withStyles(styles)(graphql(getCompaniesNamesQuery)(Search))
+export default withRouter(
+  withStyles(styles)(graphql(getCompaniesNamesQuery)(Search))
+)

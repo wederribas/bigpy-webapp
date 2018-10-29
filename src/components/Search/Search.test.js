@@ -1,4 +1,5 @@
 import React from 'react'
+import { MemoryRouter } from 'react-router-dom'
 import { Simulate } from 'react-dom/test-utils'
 import { fireEvent } from 'react-testing-library'
 import wait from 'waait'
@@ -9,9 +10,11 @@ import Search from './Search'
 
 test('Search bar filtering', async () => {
   const { container, getByTestId, getByText } = render(
-    <MockedProvider mocks={mocks} addTypename={false}>
-      <Search />
-    </MockedProvider>
+    <MemoryRouter>
+      <MockedProvider mocks={mocks} addTypename={false}>
+        <Search />
+      </MockedProvider>
+    </MemoryRouter>
   )
 
   expect(container.firstChild).toMatchSnapshot()
