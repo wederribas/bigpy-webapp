@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dashboard renders with all data 1`] = `
+<div
+  class="Dashboard-loader-2"
+>
+  <div
+    class="bouncing-loader"
+  >
+    <div />
+    <div />
+    <div />
+  </div>
+</div>
+`;
+
+exports[`Dashboard renders with all data 2`] = `
+<div>
+  <div
+    class="MuiPaper-root-4 MuiPaper-elevation1-7 MuiPaper-rounded-5 Dashboard-root-1"
+  >
+    <h2
+      class="MuiTypography-root-31 MuiTypography-h4-46"
+      data-testid="company-name"
+    >
+      Company 0
+    </h2>
+    <p
+      class="MuiTypography-root-31 MuiTypography-body2-39"
+      data-testid="reports-count"
+    >
+      1000
+    </p>
+  </div>
+  <div>
+    <p>
+      Company 0
+    </p>
+    <p>
+      This is my user report
+    </p>
+    <p>
+      5
+    </p>
+    <p>
+      This is the user feedback
+    </p>
+  </div>
+  <button
+    class="MuiButtonBase-root-92 MuiButton-root-66 MuiButton-contained-77 MuiButton-containedPrimary-78 MuiButton-raised-80 MuiButton-raisedPrimary-81"
+    tabindex="0"
+    type="button"
+  >
+    <span
+      class="MuiButton-label-67"
+    >
+      Load More
+    </span>
+    <span
+      class="MuiTouchRipple-root-95"
+    />
+  </button>
+</div>
+`;
