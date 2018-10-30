@@ -121,7 +121,7 @@ class Search extends Component {
       return (
         <Grid container direction="column" justify="center" alignItems="center">
           <MoodBad className={classes.icon} color="disabled" />
-          <Typography variant="h5" color="inherit">
+          <Typography data-testid="graphql-error" variant="h5" color="inherit">
             Something went bad. Please, try again.
           </Typography>
         </Grid>

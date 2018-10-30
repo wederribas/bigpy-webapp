@@ -5,13 +5,23 @@ import { fireEvent } from 'react-testing-library'
 import wait from 'waait'
 import { MockedProvider } from 'react-apollo/test-utils'
 import { render } from '../../utils/test-utils'
-import { mocks } from '../../utils/graphql-test-mocks'
-import Search from './Search'
+import Search, { getCompaniesNamesQuery } from './Search'
+
+const mocks = {
+  request: {
+    query: getCompaniesNamesQuery
+  },
+  result: {
+    data: {
+      companiesNames: ['Company 0', 'Company 1', 'Company 2']
+    }
+  }
+}
 
 test('Search bar filtering', async () => {
-  const { container, getByTestId, getByText } = render(
+  const { container, getByTestId, getByText, rerender } = render(
     <MemoryRouter>
-      <MockedProvider mocks={mocks} addTypename={false}>
+      <MockedProvider mocks={[mocks]} addTypename={false}>
         <Search />
       </MockedProvider>
     </MemoryRouter>
@@ -35,4 +45,18 @@ test('Search bar filtering', async () => {
   fireEvent.click(getByText('Company 0'))
   expect(inputNode.value).toEqual('Company 0')
   expect(container.firstChild).toMatchSnapshot()
+
+  // Re-render the components without the query
+  // in order to cause a GraphQL error
+  rerender(
+    <MemoryRouter>
+      <MockedProvider mocks={[]} addTypename={false}>
+        <Search />
+      </MockedProvider>
+    </MemoryRouter>
+  )
+
+  await wait(200)
+
+  expect(getByTestId('graphql-error')).toBeTruthy()
 })
