@@ -24,10 +24,19 @@ const styles = theme => ({
 })
 
 export const dashboardQuery = gql`
-  query DashboardSearchQuery($companyName: String!, $next: String) {
-    allCustomerReports(after: $next, first: 10, companyName: $companyName) {
+  query DashboardSearchQuery($companyName: String!) {
+    allCompanyReports(companyName: $companyName) {
+      countFiltered
+    }
+  }
+`
+
+export const usersReportsQuery = gql`
+  query UsersReportsQuery($companyName: String!, $cursor: String) {
+    allCustomerReports(after: $cursor, first: 10, companyName: $companyName) {
       pageInfo {
         endCursor
+        hasNextPage
       }
       edges {
         node {
@@ -36,13 +45,6 @@ export const dashboardQuery = gql`
           userReport
           userRating
           userFeedback
-        }
-      }
-    }
-    companyReportsCount(Id: $companyName) {
-      edges {
-        node {
-          count
         }
       }
     }
@@ -55,72 +57,123 @@ class Dashboard extends Component {
     const { classes } = this.props
     const companyName = this.props.match.params.companyName
     return (
-      <Query query={dashboardQuery} variables={{ companyName: companyName }}>
-        {({ loading, error, data, refetch }) => {
-          if (loading)
-            return (
-              <div className={classes.loader}>
-                <BouncingLoader className={classes.loader} />
-              </div>
-            )
-          if (error)
-            return (
-              <Grid
-                container
-                direction="column"
-                justify="center"
-                alignItems="center"
-              >
-                <MoodBad className={classes.icon} color="disabled" />
-                <Typography
-                  data-testid="graphql-error"
-                  variant="h5"
-                  color="inherit"
-                >
-                  Something went bad. Please, try again.
-                </Typography>
-              </Grid>
-            )
+      <div>
+        <Query query={dashboardQuery} variables={{ companyName: companyName }}>
+          {({
+            loading: loadingDashboard,
+            error: dashboarError,
+            data: { allCompanyReports }
+          }) => (
+            <Query
+              query={usersReportsQuery}
+              variables={{ companyName: companyName }}
+            >
+              {({
+                loading: loadingReports,
+                error: reportsError,
+                data: { allCustomerReports },
+                fetchMore
+              }) => {
+                if (loadingDashboard || loadingReports)
+                  return (
+                    <div className={classes.loader}>
+                      <BouncingLoader className={classes.loader} />
+                    </div>
+                  )
+                if (dashboarError || reportsError)
+                  return (
+                    <Grid
+                      container
+                      direction="column"
+                      justify="center"
+                      alignItems="center"
+                    >
+                      <MoodBad className={classes.icon} color="disabled" />
+                      <Typography
+                        data-testid="graphql-error"
+                        variant="h5"
+                        color="inherit"
+                      >
+                        Something went bad. Please, try again.
+                      </Typography>
+                    </Grid>
+                  )
 
-          const paginationCursor = data.allCustomerReports.pageInfo.endCursor
-          const dataToRender = data.allCustomerReports.edges
-          const totalReports = data.companyReportsCount.edges[0].node.count
+                const paginationCursor = allCustomerReports.pageInfo.endCursor
+                const dataToRender = allCustomerReports.edges
+                const totalReports = allCompanyReports.countFiltered
 
-          return (
-            <div>
-              <Paper className={classes.root} elevation={1}>
-                <Typography
-                  data-testid="company-name"
-                  variant="h4"
-                  component="h2"
-                >
-                  {companyName}
-                </Typography>
-                <Typography data-testid="reports-count" component="p">
-                  {totalReports}
-                </Typography>
-              </Paper>
+                return (
+                  <div>
+                    <div>
+                      <Paper className={classes.root} elevation={1}>
+                        <Typography
+                          data-testid="company-name"
+                          variant="h4"
+                          component="h2"
+                        >
+                          {companyName}
+                        </Typography>
+                        <Typography data-testid="reports-count" component="p">
+                          {totalReports}
+                        </Typography>
+                      </Paper>
+                    </div>
 
-              {dataToRender.map(report => (
-                <div key={report.node.Id}>
-                  <p>{report.node.companyName}</p>
-                  <p>{report.node.userReport}</p>
-                  <p>{report.node.userRating}</p>
-                  <p>{report.node.userFeedback}</p>
-                </div>
-              ))}
-              <Button
-                variant="contained"
-                color="primary"
-                className={classes.button}
-                onClick={() => refetch({ paginationCursor: paginationCursor })}
-              >
-                Load More
-              </Button>
-            </div>
-          )
-        }}
-      </Query>
+                    {dataToRender.map(report => (
+                      <div key={report.node.Id}>
+                        <p>{report.node.companyName}</p>
+                        <p>{report.node.userReport}</p>
+                        <p>{report.node.userRating}</p>
+                        <p>{report.node.userFeedback}</p>
+                      </div>
+                    ))}
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      className={classes.button}
+                      onClick={() =>
+                        fetchMore({
+                          variables: {
+                            cursor: paginationCursor
+                          },
+                          updateQuery: (
+                            previousResult,
+                            { fetchMoreResult }
+                          ) => {
+                            const newEdges =
+                              fetchMoreResult.allCustomerReports.edges
+                            const pageInfo =
+                              fetchMoreResult.allCustomerReports.pageInfo
+
+                            return newEdges.length
+                              ? {
+                                  allCustomerReports: {
+                                    __typename:
+                                      previousResult.allCustomerReports
+                                        .__typename,
+                                    edges: [
+                                      ...previousResult.allCustomerReports
+                                        .edges,
+                                      ...newEdges
+                                    ],
+                                    pageInfo
+                                  }
+                                }
+                              : previousResult
+                          }
+                        })
+                      }
+                    >
+                      Load More
+                    </Button>
+                  </div>
+                )
+              }}
+            </Query>
+          )}
+        </Query>
+      </div>
     )
   }
 }
