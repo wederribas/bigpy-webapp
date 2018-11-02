@@ -2,9 +2,10 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
-import { Button, Grid, Paper, Typography, withStyles } from '@material-ui/core'
-import MoodBad from '@material-ui/icons/MoodBad'
+import { Paper, Typography, withStyles } from '@material-ui/core'
+import UserReportFeed from '../UserReportFeed/UserReportFeed'
 import BouncingLoader from '../BouncingLoader/BouncingLoader'
+import ErrorMessage from '../ErrorMessage/ErrorMessage'
 
 const styles = theme => ({
   root: {
@@ -16,40 +17,44 @@ const styles = theme => ({
     display: 'flex',
     justifyContent: 'center',
     marginTop: theme.spacing.unit * 30
-  },
-  icon: {
-    margin: theme.spacing.unit,
-    fontSize: 250
   }
 })
 
-export const dashboardQuery = gql`
-  query DashboardSearchQuery($companyName: String!) {
-    allCompanyReports(companyName: $companyName) {
-      countFiltered
-    }
+export const DASHBOARD_QUERY = gql`
+  query UsersReportsQuery($companyName: String!) {
+    totalCompanyReports(companyName: $companyName)
   }
 `
 
-export const usersReportsQuery = gql`
-  query UsersReportsQuery($companyName: String!, $cursor: String) {
-    allCustomerReports(after: $cursor, first: 10, companyName: $companyName) {
-      pageInfo {
-        endCursor
-        hasNextPage
-      }
-      edges {
-        node {
-          Id
-          companyName
-          userReport
-          userRating
-          userFeedback
-        }
-      }
-    }
-  }
-`
+function Loading(props) {
+  return (
+    <div className={props.classes.loader}>
+      <BouncingLoader />
+    </div>
+  )
+}
+
+Loading.propTypes = {
+  classes: PropTypes.object.isRequired
+}
+
+function CompanyInformationBar(props) {
+  return (
+    <Paper className={props.classes.root} elevation={1}>
+      <Typography data-testid="company-name" variant="h4" component="h2">
+        {props.company.name}
+      </Typography>
+      <Typography data-testid="reports-count" component="p">
+        {props.company.reportsCount}
+      </Typography>
+    </Paper>
+  )
+}
+
+CompanyInformationBar.propTypes = {
+  classes: PropTypes.object.isRequired,
+  company: PropTypes.object.isRequired
+}
 
 class Dashboard extends Component {
   state = {}
@@ -58,120 +63,24 @@ class Dashboard extends Component {
     const companyName = this.props.match.params.companyName
     return (
       <div>
-        <Query query={dashboardQuery} variables={{ companyName: companyName }}>
-          {({
-            loading: loadingDashboard,
-            error: dashboarError,
-            data: { allCompanyReports }
-          }) => (
-            <Query
-              query={usersReportsQuery}
-              variables={{ companyName: companyName }}
-            >
-              {({
-                loading: loadingReports,
-                error: reportsError,
-                data: { allCustomerReports },
-                fetchMore
-              }) => {
-                if (loadingDashboard || loadingReports)
-                  return (
-                    <div className={classes.loader}>
-                      <BouncingLoader className={classes.loader} />
-                    </div>
-                  )
-                if (dashboarError || reportsError)
-                  return (
-                    <Grid
-                      container
-                      direction="column"
-                      justify="center"
-                      alignItems="center"
-                    >
-                      <MoodBad className={classes.icon} color="disabled" />
-                      <Typography
-                        data-testid="graphql-error"
-                        variant="h5"
-                        color="inherit"
-                      >
-                        Something went bad. Please, try again.
-                      </Typography>
-                    </Grid>
-                  )
+        <Query query={DASHBOARD_QUERY} variables={{ companyName: companyName }}>
+          {({ loading, error, data }) => {
+            if (loading) return <Loading classes={classes} />
+            if (error) return <ErrorMessage />
 
-                const paginationCursor = allCustomerReports.pageInfo.endCursor
-                const dataToRender = allCustomerReports.edges
-                const totalReports = allCompanyReports.countFiltered
-
-                return (
-                  <div>
-                    <div>
-                      <Paper className={classes.root} elevation={1}>
-                        <Typography
-                          data-testid="company-name"
-                          variant="h4"
-                          component="h2"
-                        >
-                          {companyName}
-                        </Typography>
-                        <Typography data-testid="reports-count" component="p">
-                          {totalReports}
-                        </Typography>
-                      </Paper>
-                    </div>
-
-                    {dataToRender.map(report => (
-                      <div key={report.node.Id}>
-                        <p>{report.node.companyName}</p>
-                        <p>{report.node.userReport}</p>
-                        <p>{report.node.userRating}</p>
-                        <p>{report.node.userFeedback}</p>
-                      </div>
-                    ))}
-                    <Button
-                      variant="contained"
-                      color="primary"
-                      className={classes.button}
-                      onClick={() =>
-                        fetchMore({
-                          variables: {
-                            cursor: paginationCursor
-                          },
-                          updateQuery: (
-                            previousResult,
-                            { fetchMoreResult }
-                          ) => {
-                            const newEdges =
-                              fetchMoreResult.allCustomerReports.edges
-                            const pageInfo =
-                              fetchMoreResult.allCustomerReports.pageInfo
-
-                            return newEdges.length
-                              ? {
-                                  allCustomerReports: {
-                                    __typename:
-                                      previousResult.allCustomerReports
-                                        .__typename,
-                                    edges: [
-                                      ...previousResult.allCustomerReports
-                                        .edges,
-                                      ...newEdges
-                                    ],
-                                    pageInfo
-                                  }
-                                }
-                              : previousResult
-                          }
-                        })
-                      }
-                    >
-                      Load More
-                    </Button>
-                  </div>
-                )
-              }}
-            </Query>
-          )}
+            return (
+              <div>
+                <CompanyInformationBar
+                  classes={classes}
+                  company={{
+                    name: companyName,
+                    reportsCount: data.totalCompanyReports
+                  }}
+                />
+                <UserReportFeed companyName={companyName} />
+              </div>
+            )
+          }}
         </Query>
       </div>
     )
