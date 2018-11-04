@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
@@ -23,50 +23,79 @@ const styles = theme => ({
   }
 })
 
-function SidebarList(props) {
-  const { classes } = props
+class SidebarList extends Component {
+  state = {
+    selectedIndex: 0
+  }
 
-  return (
-    <div className={classes.root}>
-      <List component="nav">
-        <Link to="/" className={classes.noDecoration}>
-          <ListItem button>
-            <ListItemIcon>
-              <SearchIcon />
-            </ListItemIcon>
-            <ListItemText primary="Search" />
-          </ListItem>
-        </Link>
-        <Link to="/top10" className={classes.noDecoration}>
-          <ListItem button>
-            <ListItemIcon>
-              <WhatshotIcon />
-            </ListItemIcon>
-            <ListItemText primary="Top 10" />
-          </ListItem>
-        </Link>
-        <Link to="/insights" className={classes.noDecoration}>
-          <ListItem button>
-            <ListItemIcon>
-              <HighlightIcon />
-            </ListItemIcon>
-            <ListItemText primary="Insights" />
-          </ListItem>
-        </Link>
-      </List>
-      <Divider />
-      <List component="nav">
-        <Link to="/about" className={classes.noDecoration}>
-          <ListItem button>
-            <ListItemIcon>
-              <InfoIcon />
-            </ListItemIcon>
-            <ListItemText primary="About" />
-          </ListItem>
-        </Link>
-      </List>
-    </div>
-  )
+  handleListItemClick = (event, index) => {
+    this.setState({ selectedIndex: index })
+  }
+  render() {
+    const { classes } = this.props
+
+    return (
+      <div className={classes.root}>
+        <List component="nav">
+          <Link to="/" className={classes.noDecoration}>
+            <ListItem
+              data-testid="list-item"
+              button
+              selected={this.state.selectedIndex === 0}
+              onClick={event => this.handleListItemClick(event, 0)}
+            >
+              <ListItemIcon>
+                <SearchIcon />
+              </ListItemIcon>
+              <ListItemText primary="Search" />
+            </ListItem>
+          </Link>
+          <Link to="/top10" className={classes.noDecoration}>
+            <ListItem
+              data-testid="list-item"
+              button
+              selected={this.state.selectedIndex === 1}
+              onClick={event => this.handleListItemClick(event, 1)}
+            >
+              <ListItemIcon>
+                <WhatshotIcon />
+              </ListItemIcon>
+              <ListItemText primary="Top 10" />
+            </ListItem>
+          </Link>
+          <Link to="/insights" className={classes.noDecoration}>
+            <ListItem
+              data-testid="list-item"
+              button
+              selected={this.state.selectedIndex === 2}
+              onClick={event => this.handleListItemClick(event, 2)}
+            >
+              <ListItemIcon>
+                <HighlightIcon />
+              </ListItemIcon>
+              <ListItemText primary="Insights" />
+            </ListItem>
+          </Link>
+        </List>
+        <Divider />
+        <List component="nav">
+          <Link to="/about" className={classes.noDecoration}>
+            <ListItem
+              data-testid="list-item"
+              button
+              selected={this.state.selectedIndex === 3}
+              onClick={event => this.handleListItemClick(event, 3)}
+            >
+              <ListItemIcon>
+                <InfoIcon />
+              </ListItemIcon>
+              <ListItemText primary="About" />
+            </ListItem>
+          </Link>
+        </List>
+      </div>
+    )
+  }
 }
 
 SidebarList.propTypes = {
