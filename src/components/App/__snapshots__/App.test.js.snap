@@ -69,7 +69,8 @@ exports[`renders without crashing 1`] = `
                 href="/"
               >
                 <div
-                  class="MuiButtonBase-root-90 MuiListItem-root-119 MuiListItem-default-122 MuiListItem-gutters-126 MuiListItem-button-127"
+                  class="MuiButtonBase-root-90 MuiListItem-root-119 MuiListItem-default-122 MuiListItem-gutters-126 MuiListItem-button-127 MuiListItem-selected-129"
+                  data-testid="list-item"
                   role="button"
                   tabindex="0"
                 >
@@ -112,6 +113,7 @@ exports[`renders without crashing 1`] = `
               >
                 <div
                   class="MuiButtonBase-root-90 MuiListItem-root-119 MuiListItem-default-122 MuiListItem-gutters-126 MuiListItem-button-127"
+                  data-testid="list-item"
                   role="button"
                   tabindex="0"
                 >
@@ -154,6 +156,7 @@ exports[`renders without crashing 1`] = `
               >
                 <div
                   class="MuiButtonBase-root-90 MuiListItem-root-119 MuiListItem-default-122 MuiListItem-gutters-126 MuiListItem-button-127"
+                  data-testid="list-item"
                   role="button"
                   tabindex="0"
                 >
@@ -205,6 +208,7 @@ exports[`renders without crashing 1`] = `
               >
                 <div
                   class="MuiButtonBase-root-90 MuiListItem-root-119 MuiListItem-default-122 MuiListItem-gutters-126 MuiListItem-button-127"
+                  data-testid="list-item"
                   role="button"
                   tabindex="0"
                 >
