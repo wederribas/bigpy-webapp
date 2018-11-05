@@ -6,7 +6,10 @@ import Dashboard, { DASHBOARD_QUERY } from './Dashboard'
 
 const queryData = {
   companyName: 'Company 0',
-  totalReportsCount: 1000
+  totalReportsCount: 1000,
+  totalCompanyReplies: 900,
+  overallCompanyRating: 4.5,
+  marketSegment: 'Sales and Retail'
 }
 
 const dashboardMock = {
@@ -18,7 +21,18 @@ const dashboardMock = {
   },
   result: {
     data: {
-      totalCompanyReports: queryData.totalReportsCount
+      totalCompanyReports: queryData.totalReportsCount,
+      totalCompanyReplies: queryData.totalCompanyReplies,
+      overallCompanyRating: queryData.overallCompanyRating,
+      allCompanyReports: {
+        edges: [
+          {
+            node: {
+              marketSegment: queryData.marketSegment
+            }
+          }
+        ]
+      }
     }
   }
 }
@@ -37,9 +51,11 @@ test('<Dashboard /> component renders', async () => {
   await wait(200)
 
   expect(getByTestId('company-name')).toHaveTextContent(queryData.companyName)
-  expect(getByTestId('reports-count')).toHaveTextContent(
-    queryData.totalReportsCount
+  expect(getByTestId('company-market-segment')).toHaveTextContent(
+    queryData.marketSegment
   )
+  expect(getByTestId('company-overall-rating')).toBeTruthy()
+  expect(getByTestId('company-response-rate')).toBeTruthy()
 
   // Re-render the components without the query variables
   // in order to cause a GraphQL error
