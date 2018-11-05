@@ -1,3 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<UserReportFeed /> component renders 1`] = `null`;
+exports[`<UserReportFeed /> component renders 1`] = `
+<div
+  class="UserReportFeed-loader-4"
+>
+  <div
+    class="bouncing-loader"
+  >
+    <div />
+    <div />
+    <div />
+  </div>
+</div>
+`;
