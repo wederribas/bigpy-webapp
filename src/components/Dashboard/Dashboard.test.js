@@ -9,7 +9,9 @@ const queryData = {
   totalReportsCount: 1000,
   totalCompanyReplies: 900,
   overallCompanyRating: 4.5,
-  marketSegment: 'Sales and Retail'
+  marketSegment: 'Sales and Retail',
+  year: 2018,
+  reportsCount: 12345
 }
 
 const dashboardMock = {
@@ -32,7 +34,13 @@ const dashboardMock = {
             }
           }
         ]
-      }
+      },
+      reportsPerDate: [
+        {
+          year: queryData.year,
+          count: queryData.reportsCount
+        }
+      ]
     }
   }
 }

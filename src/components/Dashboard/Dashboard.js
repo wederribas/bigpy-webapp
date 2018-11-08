@@ -7,6 +7,7 @@ import CountUp from 'react-countup'
 import UserReportFeed from '../UserReportFeed/UserReportFeed'
 import BouncingLoader from '../BouncingLoader/BouncingLoader'
 import ErrorMessage from '../ErrorMessage/ErrorMessage'
+import CompanyCharts from '../CompanyCharts/CompanyCharts'
 
 const styles = theme => ({
   card: {
@@ -32,6 +33,10 @@ export const DASHBOARD_QUERY = gql`
           marketSegment
         }
       }
+    }
+    reportsPerDate(companyName: $companyName) {
+      year
+      count
     }
   }
 `
@@ -146,6 +151,7 @@ class Dashboard extends Component {
                     overallRating: data.overallCompanyRating
                   }}
                 />
+                <CompanyCharts data={data.reportsPerDate} />
                 <UserReportFeed companyName={companyName} />
               </div>
             )
