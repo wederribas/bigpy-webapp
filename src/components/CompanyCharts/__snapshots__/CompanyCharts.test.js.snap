@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CompanyCharts /> component renders component 1`] = `
+<div
+  class="MuiPaper-root-2 MuiPaper-elevation1-5 MuiPaper-rounded-3 CompanyCharts-root-1"
+>
+  <div
+    class="MuiGrid-container-29 MuiGrid-spacing-xs-24-53"
+  >
+    <div
+      class="MuiGrid-item-30 MuiGrid-grid-xs-12-69 MuiGrid-grid-md-12-97 MuiGrid-grid-lg-6-105"
+    >
+      <canvas />
+    </div>
+    <div
+      class="MuiGrid-item-30 MuiGrid-grid-xs-12-69 MuiGrid-grid-md-6-91 MuiGrid-grid-lg-3-102"
+    >
+      <canvas />
+      <canvas />
+    </div>
+    <div
+      class="MuiGrid-item-30 MuiGrid-grid-xs-12-69 MuiGrid-grid-md-6-91 MuiGrid-grid-lg-3-102"
+    >
+      <canvas />
+      <canvas />
+    </div>
+  </div>
+</div>
+`;
