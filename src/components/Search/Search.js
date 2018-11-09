@@ -21,7 +21,7 @@ const styles = theme => ({
     display: 'flex',
     justifyContent: 'center',
     flexGrow: 1,
-    marginTop: theme.spacing.unit * 30
+    marginTop: theme.spacing.unit * 25
   },
   container: {
     flexGrow: 1,
