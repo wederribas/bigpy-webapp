@@ -15,18 +15,8 @@ const styles = theme => ({
 function CompanyCharts(props) {
   const { classes, data } = props
 
-  const years = data.map(entry => entry.year).sort()
-
-  const countPerYear = years.map(year => {
-    let foundMatch
-    data.forEach(entry => {
-      if (entry.year === year) {
-        foundMatch = entry.count
-      }
-    })
-
-    return foundMatch
-  })
+  const years = data.map(entry => entry.year)
+  const countPerYear = data.map(entry => entry.count)
 
   const chartData = {
     labels: years,
