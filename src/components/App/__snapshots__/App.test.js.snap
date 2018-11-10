@@ -9,13 +9,43 @@ exports[`renders without crashing 1`] = `
       class="Navigation-root-4"
     >
       <header
-        class="MuiPaper-root-18 MuiPaper-elevation4-24 MuiAppBar-root-9 MuiAppBar-positionAbsolute-11 MuiAppBar-colorPrimary-16 Navigation-appBar-6"
+        class="MuiPaper-root-20 MuiPaper-elevation4-26 MuiAppBar-root-11 MuiAppBar-positionAbsolute-13 MuiAppBar-colorPrimary-18 Navigation-appBar-6"
+        style="background-color: rgb(53, 104, 157);"
       >
         <div
-          class="MuiToolbar-root-45 MuiToolbar-regular-47 MuiToolbar-gutters-46"
+          class="MuiToolbar-root-47 MuiToolbar-regular-49 MuiToolbar-gutters-48"
         >
+          <button
+            aria-label="Open drawer"
+            class="MuiButtonBase-root-57 MuiIconButton-root-51 MuiIconButton-colorInherit-52 Navigation-menuButton-9"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiIconButton-label-56"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root-60"
+                focusable="false"
+                role="presentation"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M0 0h24v24H0z"
+                  fill="none"
+                />
+                <path
+                  d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
+                />
+              </svg>
+            </span>
+            <span
+              class="MuiTouchRipple-root-167"
+            />
+          </button>
           <h6
-            class="MuiTypography-root-49 MuiTypography-h6-66 MuiTypography-colorInherit-78 MuiTypography-noWrap-75"
+            class="MuiTypography-root-69 MuiTypography-h6-86 MuiTypography-colorInherit-98 MuiTypography-noWrap-95"
           >
             BigPy — Customer Data Analysis
           </h6>
@@ -23,17 +53,17 @@ exports[`renders without crashing 1`] = `
             class="Navigation-grow-5"
           />
           <a
-            class="MuiButtonBase-root-90 MuiIconButton-root-84 MuiIconButton-colorInherit-85"
+            class="MuiButtonBase-root-57 MuiIconButton-root-51 MuiIconButton-colorInherit-52"
             href="https://github.com/wederribas/bigpy-webapp"
             role="button"
             tabindex="0"
           >
             <span
-              class="MuiIconButton-label-89"
+              class="MuiIconButton-label-56"
             >
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root-93"
+                class="MuiSvgIcon-root-60"
                 focusable="false"
                 role="presentation"
                 viewBox="0 0 24 24"
@@ -44,211 +74,219 @@ exports[`renders without crashing 1`] = `
               </svg>
             </span>
             <span
-              class="MuiTouchRipple-root-148"
+              class="MuiTouchRipple-root-167"
             />
           </a>
         </div>
       </header>
-      <div
-        class="MuiDrawer-docked-102"
+      <nav
+        class="Navigation-drawer-8"
       >
         <div
-          class="MuiPaper-root-18 MuiPaper-elevation0-20 MuiDrawer-paper-103 Navigation-drawerPaper-7 MuiDrawer-paperAnchorLeft-104 MuiDrawer-paperAnchorDockedLeft-108"
+          class="MuiPrivateHiddenCss-smUp-108"
+        />
+        <div
+          class="MuiPrivateHiddenCss-xsDown-106"
         >
           <div
-            class="Navigation-toolbar-8"
-          />
-          <div
-            class="SidebarList-root-113"
+            class="MuiDrawer-docked-119"
           >
-            <nav
-              class="MuiList-root-115 MuiList-padding-116"
+            <div
+              class="MuiPaper-root-20 MuiPaper-elevation0-22 MuiDrawer-paper-120 Navigation-drawerPaper-7 MuiDrawer-paperAnchorLeft-121 MuiDrawer-paperAnchorDockedLeft-125"
             >
-              <a
-                class="SidebarList-noDecoration-114"
-                href="/"
+              <div
+                class="SidebarList-root-132"
               >
-                <div
-                  class="MuiButtonBase-root-90 MuiListItem-root-119 MuiListItem-default-122 MuiListItem-gutters-126 MuiListItem-button-127 MuiListItem-selected-129"
-                  data-testid="list-item"
-                  role="button"
-                  tabindex="0"
+                <nav
+                  class="MuiList-root-134 MuiList-padding-135"
                 >
-                  <div
-                    class="MuiListItemIcon-root-130"
+                  <a
+                    class="SidebarList-noDecoration-133"
+                    href="/"
                   >
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root-93"
-                      focusable="false"
-                      role="presentation"
-                      viewBox="0 0 24 24"
+                    <div
+                      class="MuiButtonBase-root-57 MuiListItem-root-138 MuiListItem-default-141 MuiListItem-gutters-145 MuiListItem-button-146 MuiListItem-selected-148"
+                      data-testid="list-item"
+                      role="button"
+                      tabindex="0"
                     >
-                      <path
-                        d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+                      <div
+                        class="MuiListItemIcon-root-149"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root-60"
+                          focusable="false"
+                          role="presentation"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+                          />
+                          <path
+                            d="M0 0h24v24H0z"
+                            fill="none"
+                          />
+                        </svg>
+                      </div>
+                      <div
+                        class="MuiListItemText-root-150"
+                      >
+                        <span
+                          class="MuiTypography-root-69 MuiTypography-subtitle1-87 MuiListItemText-primary-153"
+                        >
+                          Search
+                        </span>
+                      </div>
+                      <span
+                        class="MuiTouchRipple-root-167"
                       />
-                      <path
-                        d="M0 0h24v24H0z"
-                        fill="none"
-                      />
-                    </svg>
-                  </div>
-                  <div
-                    class="MuiListItemText-root-131"
+                    </div>
+                  </a>
+                  <a
+                    class="SidebarList-noDecoration-133"
+                    href="/top10"
                   >
-                    <span
-                      class="MuiTypography-root-49 MuiTypography-subtitle1-67 MuiListItemText-primary-134"
+                    <div
+                      class="MuiButtonBase-root-57 MuiListItem-root-138 MuiListItem-default-141 MuiListItem-gutters-145 MuiListItem-button-146"
+                      data-testid="list-item"
+                      role="button"
+                      tabindex="0"
                     >
-                      Search
-                    </span>
-                  </div>
-                  <span
-                    class="MuiTouchRipple-root-148"
-                  />
-                </div>
-              </a>
-              <a
-                class="SidebarList-noDecoration-114"
-                href="/top10"
-              >
-                <div
-                  class="MuiButtonBase-root-90 MuiListItem-root-119 MuiListItem-default-122 MuiListItem-gutters-126 MuiListItem-button-127"
-                  data-testid="list-item"
-                  role="button"
-                  tabindex="0"
+                      <div
+                        class="MuiListItemIcon-root-149"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root-60"
+                          focusable="false"
+                          role="presentation"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z"
+                          />
+                          <path
+                            d="M0 0h24v24H0z"
+                            fill="none"
+                          />
+                        </svg>
+                      </div>
+                      <div
+                        class="MuiListItemText-root-150"
+                      >
+                        <span
+                          class="MuiTypography-root-69 MuiTypography-subtitle1-87 MuiListItemText-primary-153"
+                        >
+                          Top 10
+                        </span>
+                      </div>
+                      <span
+                        class="MuiTouchRipple-root-167"
+                      />
+                    </div>
+                  </a>
+                  <a
+                    class="SidebarList-noDecoration-133"
+                    href="/insights"
+                  >
+                    <div
+                      class="MuiButtonBase-root-57 MuiListItem-root-138 MuiListItem-default-141 MuiListItem-gutters-145 MuiListItem-button-146"
+                      data-testid="list-item"
+                      role="button"
+                      tabindex="0"
+                    >
+                      <div
+                        class="MuiListItemIcon-root-149"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root-60"
+                          focusable="false"
+                          role="presentation"
+                          viewBox="0 0 24 24"
+                        >
+                          <defs>
+                            <path
+                              d="M0 0h24v24H0V0z"
+                              id="a"
+                            />
+                          </defs>
+                          <path
+                            d="M6 14l3 3v5h6v-5l3-3V9H6zm5-12h2v3h-2zM3.5 5.875L4.914 4.46l2.12 2.122L5.62 7.997zm13.46.71l2.123-2.12 1.414 1.414L18.375 8z"
+                          />
+                        </svg>
+                      </div>
+                      <div
+                        class="MuiListItemText-root-150"
+                      >
+                        <span
+                          class="MuiTypography-root-69 MuiTypography-subtitle1-87 MuiListItemText-primary-153"
+                        >
+                          Insights
+                        </span>
+                      </div>
+                      <span
+                        class="MuiTouchRipple-root-167"
+                      />
+                    </div>
+                  </a>
+                </nav>
+                <hr
+                  class="MuiDivider-root-156"
+                />
+                <nav
+                  class="MuiList-root-134 MuiList-padding-135"
                 >
-                  <div
-                    class="MuiListItemIcon-root-130"
+                  <a
+                    class="SidebarList-noDecoration-133"
+                    href="/about"
                   >
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root-93"
-                      focusable="false"
-                      role="presentation"
-                      viewBox="0 0 24 24"
+                    <div
+                      class="MuiButtonBase-root-57 MuiListItem-root-138 MuiListItem-default-141 MuiListItem-gutters-145 MuiListItem-button-146"
+                      data-testid="list-item"
+                      role="button"
+                      tabindex="0"
                     >
-                      <path
-                        d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z"
+                      <div
+                        class="MuiListItemIcon-root-149"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root-60"
+                          focusable="false"
+                          role="presentation"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M0 0h24v24H0z"
+                            fill="none"
+                          />
+                          <path
+                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"
+                          />
+                        </svg>
+                      </div>
+                      <div
+                        class="MuiListItemText-root-150"
+                      >
+                        <span
+                          class="MuiTypography-root-69 MuiTypography-subtitle1-87 MuiListItemText-primary-153"
+                        >
+                          About
+                        </span>
+                      </div>
+                      <span
+                        class="MuiTouchRipple-root-167"
                       />
-                      <path
-                        d="M0 0h24v24H0z"
-                        fill="none"
-                      />
-                    </svg>
-                  </div>
-                  <div
-                    class="MuiListItemText-root-131"
-                  >
-                    <span
-                      class="MuiTypography-root-49 MuiTypography-subtitle1-67 MuiListItemText-primary-134"
-                    >
-                      Top 10
-                    </span>
-                  </div>
-                  <span
-                    class="MuiTouchRipple-root-148"
-                  />
-                </div>
-              </a>
-              <a
-                class="SidebarList-noDecoration-114"
-                href="/insights"
-              >
-                <div
-                  class="MuiButtonBase-root-90 MuiListItem-root-119 MuiListItem-default-122 MuiListItem-gutters-126 MuiListItem-button-127"
-                  data-testid="list-item"
-                  role="button"
-                  tabindex="0"
-                >
-                  <div
-                    class="MuiListItemIcon-root-130"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root-93"
-                      focusable="false"
-                      role="presentation"
-                      viewBox="0 0 24 24"
-                    >
-                      <defs>
-                        <path
-                          d="M0 0h24v24H0V0z"
-                          id="a"
-                        />
-                      </defs>
-                      <path
-                        d="M6 14l3 3v5h6v-5l3-3V9H6zm5-12h2v3h-2zM3.5 5.875L4.914 4.46l2.12 2.122L5.62 7.997zm13.46.71l2.123-2.12 1.414 1.414L18.375 8z"
-                      />
-                    </svg>
-                  </div>
-                  <div
-                    class="MuiListItemText-root-131"
-                  >
-                    <span
-                      class="MuiTypography-root-49 MuiTypography-subtitle1-67 MuiListItemText-primary-134"
-                    >
-                      Insights
-                    </span>
-                  </div>
-                  <span
-                    class="MuiTouchRipple-root-148"
-                  />
-                </div>
-              </a>
-            </nav>
-            <hr
-              class="MuiDivider-root-137"
-            />
-            <nav
-              class="MuiList-root-115 MuiList-padding-116"
-            >
-              <a
-                class="SidebarList-noDecoration-114"
-                href="/about"
-              >
-                <div
-                  class="MuiButtonBase-root-90 MuiListItem-root-119 MuiListItem-default-122 MuiListItem-gutters-126 MuiListItem-button-127"
-                  data-testid="list-item"
-                  role="button"
-                  tabindex="0"
-                >
-                  <div
-                    class="MuiListItemIcon-root-130"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root-93"
-                      focusable="false"
-                      role="presentation"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M0 0h24v24H0z"
-                        fill="none"
-                      />
-                      <path
-                        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"
-                      />
-                    </svg>
-                  </div>
-                  <div
-                    class="MuiListItemText-root-131"
-                  >
-                    <span
-                      class="MuiTypography-root-49 MuiTypography-subtitle1-67 MuiListItemText-primary-134"
-                    >
-                      About
-                    </span>
-                  </div>
-                  <span
-                    class="MuiTouchRipple-root-148"
-                  />
-                </div>
-              </a>
-            </nav>
+                    </div>
+                  </a>
+                </nav>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      </nav>
     </div>
     <main
       class="MainComponent-content-2"
@@ -257,7 +295,7 @@ exports[`renders without crashing 1`] = `
         class="MainComponent-toolbar-3"
       />
       <div
-        class="Apollo-Search--root-141"
+        class="Apollo-Search--root-160"
       >
         <div
           class="bouncing-loader"

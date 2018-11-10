@@ -11,7 +11,11 @@ const queryData = {
   overallCompanyRating: 4.5,
   marketSegment: 'Sales and Retail',
   year: 2018,
-  reportsCount: 12345
+  reportsCount: 12345,
+  reportRegion: 'NE',
+  average: 2.54,
+  gender: 'Male',
+  ageRange: '31-40'
 }
 
 const dashboardMock = {
@@ -38,6 +42,30 @@ const dashboardMock = {
       reportsPerDate: [
         {
           year: queryData.year,
+          count: queryData.reportsCount
+        }
+      ],
+      companyReportsPerRegion: [
+        {
+          region: queryData.reportRegion,
+          count: queryData.reportsCount
+        }
+      ],
+      companyRatingPerYear: [
+        {
+          year: queryData.year,
+          average: queryData.average
+        }
+      ],
+      companyReportsPerGender: [
+        {
+          gender: queryData.gender,
+          count: queryData.reportsCount
+        }
+      ],
+      companyReportsPerAge: [
+        {
+          ageRange: queryData.ageRange,
           count: queryData.reportsCount
         }
       ]
