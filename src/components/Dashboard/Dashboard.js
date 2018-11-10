@@ -38,6 +38,22 @@ export const DASHBOARD_QUERY = gql`
       year
       count
     }
+    companyReportsPerRegion(companyName: $companyName) {
+      region
+      count
+    }
+    companyRatingPerYear(companyName: $companyName) {
+      year
+      average
+    }
+    companyReportsPerGender(companyName: $companyName) {
+      gender
+      count
+    }
+    companyReportsPerAge(companyName: $companyName) {
+      ageRange
+      count
+    }
   }
 `
 
@@ -138,6 +154,14 @@ class Dashboard extends Component {
             if (loading) return <Loading classes={classes} />
             if (error) return <ErrorMessage />
 
+            const chartsData = {
+              reportsPerDate: data.reportsPerDate,
+              companyReportsPerRegion: data.companyReportsPerRegion,
+              companyRatingPerYear: data.companyRatingPerYear,
+              companyReportsPerGender: data.companyReportsPerGender,
+              companyReportsPerAge: data.companyReportsPerAge
+            }
+
             return (
               <div>
                 <CompanyInformationBar
@@ -151,7 +175,7 @@ class Dashboard extends Component {
                     overallRating: data.overallCompanyRating
                   }}
                 />
-                <CompanyCharts data={data.reportsPerDate} />
+                <CompanyCharts data={chartsData} />
                 <UserReportFeed companyName={companyName} />
               </div>
             )
