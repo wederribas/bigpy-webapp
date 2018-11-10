@@ -56,7 +56,11 @@ class Navigation extends Component {
     const { classes, theme } = this.props
     return (
       <div className={classes.root}>
-        <AppBar position="absolute" className={classes.appBar}>
+        <AppBar
+          position="absolute"
+          className={classes.appBar}
+          style={{ backgroundColor: '#35689d' }}
+        >
           <Toolbar>
             <IconButton
               color="inherit"
