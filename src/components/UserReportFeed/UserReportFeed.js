@@ -13,6 +13,7 @@ import {
   Divider,
   Grid
 } from '@material-ui/core'
+import { Star } from '@material-ui/icons'
 import ErrorMessage from '../ErrorMessage/ErrorMessage'
 import BouncingLoader from '../BouncingLoader/BouncingLoader'
 
@@ -28,6 +29,15 @@ const styles = theme => ({
   feedListItem: {
     display: 'block'
   },
+  listItemRoot: {
+    paddingBottom: theme.spacing.unit * 2
+  },
+  listItemPrimary: {
+    fontWeight: 500
+  },
+  listItemSecondary: {
+    fontStyle: 'italic'
+  },
   loader: {
     display: 'flex',
     justifyContent: 'center',
@@ -36,6 +46,12 @@ const styles = theme => ({
   loadButton: {
     display: 'flex',
     justifyContent: 'center'
+  },
+  sectionTitle: {
+    color: '#35689d'
+  },
+  textSection: {
+    paddingBottom: theme.spacing.unit * 2
   }
 })
 
@@ -55,6 +71,7 @@ export const USER_REPORT_FEED_QUERY = gql`
           userReport
           userRating
           userFeedback
+          companyResponse
           date
         }
       }
@@ -110,18 +127,61 @@ function ReportsFeed(props) {
               <div key={report.node.Id}>
                 <ListItem className={classes.feedListItem}>
                   <ListItemText
+                    classes={{
+                      root: classes.listItemRoot,
+                      primary: classes.listItemPrimary,
+                      secondary: classes.listItemSecondary
+                    }}
                     primary={`${report.node.city} - ${report.node.state}`}
                     secondary={date.toDateString()}
                   />
-                  <Typography component="p">
-                    {report.node.userReport}
-                  </Typography>
-                  <Typography component="p">
-                    {report.node.userFeedback}
-                  </Typography>
-                  <Typography component="p">
-                    {report.node.userRating}
-                  </Typography>
+
+                  <div className={classes.textSection}>
+                    <Typography
+                      variant="button"
+                      className={classes.sectionTitle}
+                    >
+                      {'Initial Report'}
+                    </Typography>
+                    <Typography component="p">
+                      {report.node.userReport}
+                    </Typography>
+                  </div>
+
+                  <div className={classes.textSection}>
+                    <Typography
+                      variant="button"
+                      className={classes.sectionTitle}
+                    >
+                      {'Company Response'}
+                    </Typography>
+                    <Typography component="p">
+                      {report.node.companyResponse}
+                    </Typography>
+                  </div>
+
+                  <div className={classes.textSection}>
+                    <Typography
+                      variant="button"
+                      className={classes.sectionTitle}
+                    >
+                      {'Customer Feedback'}
+                    </Typography>
+                    <Typography component="p">
+                      {report.node.userFeedback}
+                    </Typography>
+
+                    <Typography component="p">
+                      {Array(report.node.userRating)
+                        .fill()
+                        .map((_, index) => (
+                          <Star
+                            key={index}
+                            style={{ fontSize: 12, color: 'rgba(238,203,116)' }}
+                          />
+                        ))}
+                    </Typography>
+                  </div>
                 </ListItem>
                 {totalReports === index + 1 || <Divider />}
               </div>
