@@ -53,7 +53,7 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-flow": "^6.23.0",
-    "codecov": "^3.1.0",
+    "codecov": "^3.6.5",
     "eslint": "5.6.0",
     "eslint-config-kentcdodds": "^14.0.4",
     "eslint-plugin-react": "^7.11.1",
